@@ -1,6 +1,218 @@
+/* Start Global Style */
 *,*::after,*::before{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
+:root{
+    --red-color: #f44336;
+}
+
+
+ul,ol,li,a{
+    list-style: none;
+    text-decoration: none;
+}
+/* End Global Style */
+
+
+
+
+
+
+
+
+
+
+/* Start Header */
+header{
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),
+    url("/images/banner.png");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 0;
+}
+
+.navbar .logo{width: 150px;}
+
+.navbar .logo img{width: 100%;}
+
+
+.navbar .navbar-links{
+    display: flex;
+    transition: all .3s ease-in-out;
+}
+
+.navbar .navbar-links li{
+    padding: 0 12px;
+    position: relative;
+}
+
+.navbar .navbar-links li a{
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.navbar .navbar-links li::after{
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: var(--red-color);
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar .navbar-links li:hover::after{
+    width: 100%;
+}
+
+
+.text-box{
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    color: white;
+}
+
+.text-box h2{font-size: 60px;}
+
+.text-box p{
+    margin: 10px 0 50px 0;
+    font-size: 15px;
+}
+
+.btn-hero::before,
+.btn-hero::after{
+    content: "";
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 2px;
+    background-color: white;
+    top: 50%;
+    transform: translateY(-50%);
+    right: calc(100% - 15px);
+    transition: all .3s ease-in-out;
+}
+.btn-hero::after{left: calc(100% - 15px);}
+
+.btn-hero:hover{
+    background-color: var(--red-color);
+    border: 1px solid var(--red-color);
+}
+.btn-hero:hover::before{background-color: var(--red-color);}
+.btn-hero:hover::after{background-color: var(--red-color);}
+
+
+.navbar-toggler{
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    margin: 0 15px;
+}
+
+.navbar-close-btn{
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+
+@media (max-width: 767px) {
+
+    header .text-box h2{font-size: 25px;}
+
+    .navbar-links{
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        top: 0;
+        right: -200px;
+        height: 100vh;
+        width: 200px;
+        background-color: var(--red-color);
+        text-align: left;
+        z-index: 2;
+        padding: 50px 0 0 20px;
+    }
+
+    /* For JS operations */
+    .navbar-links.show{right: 0;}
+}
+/* End Header */
+
+
+
+
+
+
+
+
+
+
+
+/* Start FrameWork */
+.container{
+    width: 100%;
+    padding: 0 15px;
+    margin: auto;
+}
+
+.btn{
+    display: inline-block;
+    color: white;
+    border: 1px solid #fff;
+    padding: 12px 34px;
+    font-size: 13px;
+    position: relative;
+    transition: all .3s ease-in-out;
+}
+
+.hide{display: none;}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    .container{width: 540px;}
+    .hide-sm{display: none;}
+}
+
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .container{width: 720px;}
+    .hide-md{display: none;}
+}
+
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .container{width: 960px;}
+    .hide-lg{display: none;}
+}
+
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .container{width: 1140px;}
+    .hide-xlg{display: none;}
+}
